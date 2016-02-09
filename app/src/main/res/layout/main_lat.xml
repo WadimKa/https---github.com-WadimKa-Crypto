@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="370dp"
+        android:text="текст для работы"
+        android:id="@+id/textViewForText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:editable="true"
+        android:elegantTextHeight="false"
+        android:enabled="true"
+        android:focusable="false"
+        android:contextClickable="true"
+        android:textIsSelectable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="encode N"
+        android:id="@+id/btnEncode"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="decode N"
+        android:id="@+id/btnDecode"
+        android:layout_below="@+id/btnEncode"
+        android:layout_alignRight="@+id/btnEncode"
+        android:layout_alignEnd="@+id/btnEncode"
+        android:onClick="onClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknow"
+        android:id="@+id/button3"
+        android:layout_below="@+id/btnDecode"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick" />
+
+    <EditText
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:id="@+id/edtCodeWord"
+        android:layout_below="@+id/textViewForText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:id="@+id/edtForIO"
+        android:layout_below="@+id/edtCodeWord"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="/storage/extSdCard/dat.txt"
+        android:textSize="15dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:id="@+id/btnSave"
+        android:layout_below="@+id/edtCodeWord"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="open"
+        android:id="@+id/btnOpen"
+        android:layout_above="@+id/btnSave"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick" />
+
+</RelativeLayout>
