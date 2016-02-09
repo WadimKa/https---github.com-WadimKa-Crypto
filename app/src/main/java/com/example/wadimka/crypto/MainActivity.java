@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends Activity {
     int indikator =0;
     String path="", text="";
-    public static EditText edtForIO, edtCodeWord;
-    public static TextView placeForText;
+    public static EditText edtForIO, edtCodeWord,placeForText;
+    //public static TextView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 
         edtCodeWord = (EditText) findViewById(R.id.edtCodeWord);
         edtForIO = (EditText) findViewById(R.id.edtForIO);
-        placeForText = (TextView) findViewById(R.id.textViewForText);
+        placeForText = (EditText) findViewById(R.id.textViewForText);
 
     }
 
@@ -53,6 +53,8 @@ public class MainActivity extends Activity {
             case R.id.btnDecode:
                 placeForText.setText( CodeN.decodedFromNumeral(placeForText.getText().toString()) );
                 break;
+            case R.id.btnCln:
+                placeForText.setText("");
         }
     }
 
