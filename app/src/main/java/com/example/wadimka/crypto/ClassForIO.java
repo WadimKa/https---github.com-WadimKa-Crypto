@@ -1,6 +1,7 @@
 package com.example.wadimka.crypto;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileReader;
@@ -17,12 +18,11 @@ public class ClassForIO
         File file = new File(path);
         try
         {
-            FileReader fileReader = new FileReader("/storage/extSdCard/dat.txt");
+            FileReader fileReader = new FileReader(path);
 
-            int i=0;
-            while((i=fileReader.read())!=-1)
-            {
-                retData+=(char) i;
+            int i = 0;
+            while ((i = fileReader.read()) != -1) {
+                retData += (char) i;
             }
             fileReader.close();
         }
@@ -39,16 +39,20 @@ public class ClassForIO
 
     public static void writeInFile(String pathForWrite, String dataForWrite)
     {
+        Log.d("DDD","1");
         File file = new File(pathForWrite);
         try
         {
+            Log.d("DDD", "2");
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(dataForWrite);
             fileWriter.close();
+            Log.d("DDD","writed");
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            Log.d("DDD",e.getMessage());
+
         }
     }
 

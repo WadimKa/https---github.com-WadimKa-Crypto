@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +15,8 @@ import java.util.concurrent.TimeUnit;
  * Created by WadimKa on 05.02.2016.
  */
 public class MainActivity extends Activity {
-    String path="";
+    int indikator =0;
+    String path="", text="";
     public static EditText edtForIO, edtCodeWord;
     public static TextView placeForText;
 
@@ -32,13 +34,17 @@ public class MainActivity extends Activity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnOpen:
-               // placeForText.setText(ClassForIO.readFromFile(edtRead.getText().toString()));
                 path=edtForIO.getText().toString();
+                indikator=0;
                 HelpForwrad helpForwrad = new HelpForwrad();
                 helpForwrad.execute();
                 break;
             case R.id.btnSave:
-                ClassForIO.writeInFile(edtForIO.getText().toString(), placeForText.getText().toString());
+                path=edtForIO.getText().toString();
+                indikator=1;
+                text=placeForText.getText().toString();
+                HelpForwrad helpForwradSecond = new HelpForwrad();
+                helpForwradSecond.execute();
                 break;
             case R.id.btnEncode:
                 String text = placeForText.getText().toString();
@@ -53,17 +59,26 @@ public class MainActivity extends Activity {
 
     class HelpForwrad extends AsyncTask
     {
-        String retData = "";
+
 
         @Override
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
-            placeForText.setText(retData);
+            placeForText.setText(text);
+
         }
 
         @Override
         protected Object doInBackground(Object[] params) {
-            retData=ClassForIO.readFromFile(path);
+            if(indikator==0)
+            {
+                text=ClassForIO.readFromFile(path);
+            }
+            else
+            {
+                ClassForIO.writeInFile(path,text);
+            }
+
             return null;
         }
     }
